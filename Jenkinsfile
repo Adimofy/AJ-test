@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('parallel-job'){
+        stage('compile a build binary'){
          parallel{
           stage('sub-job1'){
            steps{
@@ -15,7 +15,7 @@ pipeline {
                 sh 'echo "Prosper script: OS statistics and Jenkins status check"'
             }
         }
-        stage('parallel-job'){
+        stage('testing'){
          parallel{
           stage('sub-job2'){
            steps{
@@ -24,7 +24,7 @@ pipeline {
         }
     }
 }
-        stage('Prosper Stage') {
+        stage('Jonas Stage') {
             steps {
                 sh 'echo "Prosper script: OS statistics and Jenkins status check"'
             }
