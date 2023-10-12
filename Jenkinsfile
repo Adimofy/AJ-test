@@ -3,31 +3,31 @@ pipeline {
     stages {
         stage('Prosper Stage') {
             steps {
-                sh 'echo "Prosper script: OS statistics and Jenkins status check"'
+                sh './ajtest.sh'
             }
         }
         stage('parallel'){
         parallel{
         stage('erica'){
             steps{
-                sh 'echo "Erica script: OS statistics and Jenkins status check"'
+                sh './ajtest.sh'
             }
         }
         stage('Bill Stage') {
             steps {
-                sh 'echo "Prosper script: OS statistics and Jenkins status check"'
+                sh './ajtest.sh'
             }
         }
         }
         }
         stage('Jonas Stage') {
             steps {
-                sh 'echo "Prosper script: OS statistics and Jenkins status check"'
+                sh './ajtest.sh'
             }
         }
                 stage('Gilbet Stage') {
             steps {
-                sh 'echo "Prosper script: OS statistics and Jenkins status check"'
+                sh './ajtest.sh'
             }
         }
     }
