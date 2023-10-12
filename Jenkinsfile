@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('compile a build binary'){
+        stage('parallel job'){
          parallel{
-          stage('sub-job1'){
+          stage('compile a build binary'){
            steps{
             sh 'echo "Erica script: OS statistics and Jenkins status check"'
             }
