@@ -1,23 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('parallel job'){
-         parallel{
-          stage('compile a build binary'){
-           steps{
-            sh 'echo "Erica script: OS statistics and Jenkins status check"'
-            }
-        }
-    }
-}
         stage('Prosper Stage') {
             steps {
                 sh 'echo "Prosper script: OS statistics and Jenkins status check"'
             }
         }
-        stage('testing'){
+        stage('parallel'){
          parallel{
-          stage('sub-job2'){
+          stage('erica'){
            steps{
             sh 'echo "Erica script: OS statistics and Jenkins status check"'
             }
