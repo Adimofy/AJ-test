@@ -1,34 +1,23 @@
 pipeline {
-    agent any
-    stages {
-        stage('Prosper Stage') {
-            steps {
-                sh '/var/lib/jenkins/workspace/Bachanou/ajtest.sh'
-            }
-        }
-        stage('parallel'){
-        parallel{
-        stage('erica'){
-            steps{
-                sh '/var/lib/jenkins/workspace/Bachanou/ajtest.sh'
-            }
-        }
-        stage('Bill Stage') {
-            steps {
-                sh '/var/lib/jenkins/workspace/Bachanou/ajtest.sh'
-            }
-        }
-        }
-        }
-        stage('Jonas Stage') {
-            steps {
-                sh '/var/lib/jenkins/workspace/Bachanou/ajtest.sh'
-            }
-        }
-                stage('Gilbet Stage') {
-            steps {
-                sh '/var/lib/jenkins/workspace/Bachanou/ajtest.sh'
-            }
-        }
+  agent any
+  tools {
+    maven 'maven'
+  }
+  stages{
+    stage('1-cloning project repo'){
+      steps{
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins7creds', url: 'https://github.com/Adimofy/AJ-test.git']])
+      }
     }
+    stage('2-cleanws'){
+      steps{
+        sh 'mvn clean'
+      }
+    }
+    stage('3-mavenbuild'){
+      steps{
+        sh 'mvn package'
+      }
+    }
+  }
 }
