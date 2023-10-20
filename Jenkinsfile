@@ -16,7 +16,7 @@ pipeline {
     }
     stage('3-mavenbuild'){
       steps{
-        sh 'mvn packages'
+        sh 'mvn package'
       }
     }
   }
