@@ -9,7 +9,7 @@ pipeline {
         checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins7creds', url: 'https://github.com/Adimofy/AJ-test.git']])
       }
     }
-    stage('2-cleanws'){
+    stage('2-cleans'){
       steps{
         sh 'mvn clean'
       }
