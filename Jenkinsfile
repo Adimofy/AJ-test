@@ -4,14 +4,14 @@ pipeline {
     maven 'maven'
   }
   stages{
-    stage('1-cloning project repo'){
+    stage('1-git-clone'){
       steps{
         checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'jenkins7creds', url: 'https://github.com/Adimofy/AJ-test.git']])
       }
     }
-    stage('2-cleans'){
+    stage('2-cleanws'){
       steps{
-        sh 'mvn clean /home/ubuntu/maven-etech/etech-mavenApp/MavenEnterpriseApp-web/pom.xml'
+        sh 'mvn clean'
       }
     }
     stage('3-mavenbuild'){
