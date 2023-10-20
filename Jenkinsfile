@@ -11,7 +11,8 @@ pipeline {
     }
     stage('2-cleans'){
       steps{
-        sh 'mvn clean'
+        sh 'mvn clean /home/ubuntu/maven-etech/etech-mavenApp/MavenEnterpriseApp-web/pom.xml
+'
       }
     }
     stage('3-mavenbuild'){
